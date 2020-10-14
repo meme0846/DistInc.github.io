@@ -1,6 +1,5 @@
 function ach63SC() {
-	let sc = new ExpantaNum(1e25)
-	if (tmp.inf) if (tmp.inf.upgs.has("8;4")) sc = sc.times(player.inf.pantheon.purge.power.plus(1).pow(17))
+	let sc = new ExpantaNum(Infinity)
 	return sc
 }
 
