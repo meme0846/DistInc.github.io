@@ -15,7 +15,6 @@ function ach63Eff() {
 	let sc = ach63SC()
 	let pow = ach63Pow()
 	let eff = tmp.timeSpeed ? tmp.timeSpeed.pow(0.025).pow(pow) : new ExpantaNum(1)
-	if (eff.gte(sc)) eff = eff.log10().times(sc.div(sc.log10()))
 	if (player.elementary.sky.unl && tmp.elm) eff = eff.pow(tmp.elm.sky.pionEff[9])
 	return eff
 }
