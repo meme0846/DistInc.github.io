@@ -4,10 +4,7 @@ function getRocketSoftcapStart() {
 }
 
 function getRocketEffectSoftcapStart() {
-	let sc = new ExpantaNum(5);
-	if (modeActive("hard")) sc = sc.sub(0.5);
-	if (modeActive("easy")) sc = sc.plus(0.5);
-	if (tmp.pathogens && player.pathogens.unl) sc = sc.plus(tmp.pathogens[8].eff());
+	let sc = new ExpantaNum(Infinity);
 	return sc
 }
 
