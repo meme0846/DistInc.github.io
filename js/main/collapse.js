@@ -1,15 +1,10 @@
 function getCadaverEffSoftcapStart() {
-	let sc = new ExpantaNum(1e12);
-	if (modeActive("hard")) sc = sc.div(100);
-	if (modeActive("easy")) sc = sc.times(80);
-	if (tmp.pathogens && player.pathogens.unl) sc = sc.times(tmp.pathogens[10].eff());
-	if (tmp.inf) sc = sc.times(tmp.inf.asc.perkEff(3));
+	let sc = new ExpantaNum(Infinity);
 	return sc;
 }
 
 function getCadaverEffSoftcapPower() {
-	let pow = new ExpantaNum(1);
-	if (tmp.inf) if (tmp.inf.upgs.has("8;5")) pow = pow.times(0.2);
+	let pow = new ExpantaNum(0);
 	return pow;
 }
 
