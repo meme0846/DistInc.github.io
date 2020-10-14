@@ -1,8 +1,5 @@
 function getRocketSoftcapStart() {
-	let sc = new ExpantaNum(LAYER_SC["rockets"]);
-	if (modeActive("hard")) sc = new ExpantaNum(1)
-	if (modeActive("easy")) sc = sc.times(1.1).round();
-	if (tmp.pathogens && player.pathogens.unl) sc = sc.times(tmp.pathogens[7].eff())
+	let sc = new ExpantaNum(Infinity);
 	return sc
 }
 
