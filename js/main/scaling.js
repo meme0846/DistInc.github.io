@@ -1,5 +1,6 @@
-function scalingActive(name, amt, type) {
-	return false;
+  function scalingActive(name, amt, type) {
+	amt = new ExpantaNum(amt);
+	return amt.gte(getScalingStart(type, name));
 }
 
 function getScalingName(name, x=0) {
