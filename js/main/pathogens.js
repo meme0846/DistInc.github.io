@@ -75,7 +75,6 @@ function updateTempPathogens() {
 	if (extremeStadiumActive("nullum", 3)) tmp.pathogens.upgPow = tmp.pathogens.upgPow.times(0.8);
 	if (extremeStadiumActive("quantron")) tmp.pathogens.upgPow = tmp.pathogens.upgPow.times(0.9);
 	if (nerfActive("noPathogenUpgs")) tmp.pathogens.upgPow = new ExpantaNum(0);
-	if (tmp.pathogens.upgPow.gte(10)) tmp.pathogens.upgPow = tmp.pathogens.upgPow.sqrt().times(Math.sqrt(10))
 	if (player.elementary.sky.unl && tmp.elm) tmp.pathogens.upgPow = tmp.pathogens.upgPow.times(tmp.elm.sky.pionEff[2])
 	if (!tmp.pathogens.extra) tmp.pathogens.extra = function (n) {
 		let extra = new ExpantaNum(0);
