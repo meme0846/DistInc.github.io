@@ -290,14 +290,12 @@ function getAccelGain() {
 	if (!player.elementary.theory.accelerons.unl) return new ExpantaNum(0)
 	let gain = tmp.acc.plus(1).log10().div(1e6).sqrt()
 	gain = gain.times(TREE_UPGS[12].effect(player.elementary.theory.tree.upgrades[12]||0))
-	if (gain.gte(1e6)) gain = gain.cbrt().times(Math.pow(1e6, 2/3))
 	return gain
 }
 
 function getAccelEff() {
 	if (!player.elementary.theory.accelerons.unl) return new ExpantaNum(1)
 	let eff = player.elementary.theory.accelerons.amount.plus(1).pow(0.04)
-	if (eff.gte(2)) eff = eff.logBase(2).plus(1)
 	return eff
 }
 
@@ -383,7 +381,6 @@ function getInflatonState() {
 function getInflatonGain() {
 	let gain = player.elementary.theory.inflatons.amount.plus(1).pow(0.6)
 	gain = gain.times(player.elementary.theory.inflatons.amount.plus(1).pow((tmp.elm.hc.infState+1)/6))
-	if (gain.gte(5e4)) gain = gain.times(5e4).sqrt()
 	if (player.elementary.foam.unl && tmp.elm.qf) gain = gain.times(tmp.elm.qf.boost4)
 	return gain
 }
