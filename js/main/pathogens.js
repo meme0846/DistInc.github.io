@@ -97,7 +97,6 @@ function updateTempPathogens() {
 		let fp = new ExpantaNum(1);
 		if (tmp.inf) if (tmp.inf.upgs.has("8;8")) fp = fp.times(INF_UPGS.effects["8;8"]());
 		let bought = player.pathogens.upgrades[n].plus(tmp.pathogens.extra(n));
-		if (bought.gte(getPathogenUpgSoftcapStart(n))) bought = bought.sqrt().times(getPathogenUpgSoftcapStart(n).sqrt());
 		bought = bought.times(tmp.pathogens.upgPow);
 		if (PTH_UPGS[n].unl ? !PTH_UPGS[n].unl() : false) bought = new ExpantaNum(0);
 		let sPos = tmp.inf ? (tmp.inf.upgs.has("3;8") && n >= 6 && n <= 10) : false
