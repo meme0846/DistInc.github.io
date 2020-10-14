@@ -1,7 +1,7 @@
 function updateTempTR() {
 	if (tmp.tr===undefined) tmp.tr = {};
 	tmp.tr.txt = player.tr.active ? "Bring Time back to normal." : "Reverse Time.";
-	tmp.tr.esc = new ExpantaNum(1e20);
+	tmp.tr.esc = new ExpantaNum(Infinity);
 	cubes = player.tr.cubes;
 	if (cubes.gte(tmp.tr.esc)) cubes = cubes.cbrt().times(Math.pow(tmp.tr.esc, 2 / 3));
 	tmp.tr.eff = cubes.plus(1).log10().plus(1).logBase(2);
