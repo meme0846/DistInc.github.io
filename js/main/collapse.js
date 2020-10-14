@@ -40,9 +40,7 @@ function hasCollapseMilestone(n) {
 }
 
 function calcCollpaseSCS(){
-	tmp.collapse.sc = new ExpantaNum(LAYER_SC["collapse"]);
-	if (tmp.pathogens && player.pathogens.unl) tmp.collapse.sc = tmp.collapse.sc.times(tmp.pathogens[9].eff());
-	if (tmp.inf) tmp.collapse.sc = tmp.collapse.sc.times(tmp.inf.asc.perkEff(4));
+	tmp.collapse.sc = new ExpantaNum(Infinity);
 }
 
 function calcCollapseSacEff(){
