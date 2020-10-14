@@ -57,7 +57,7 @@ function updateElementaryLayer() {
 		player.rockets.gte(LAYER_REQS.elementary[0][1]) &&
 		player.collapse.cadavers.gte(LAYER_REQS.elementary[1][1]) &&
 		player.inf.endorsements.gte(LAYER_REQS.elementary[2][1]);
-	tmp.elm.softcap = new ExpantaNum(4000)
+	tmp.elm.softcap = new ExpantaNum(Infinity)
 	if (!tmp.elm.gain) tmp.elm.gain = (function () {
 		if (!tmp.elm.can) return new ExpantaNum(0);
 		let f1 = player.rockets.max(1).log10().div(LAYER_REQS.elementary[0][1].log10()).sqrt();
