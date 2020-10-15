@@ -1068,7 +1068,6 @@ function updateAcceleronsHTML(){
 		tmp.el.accel.setTxt(showNum(player.elementary.theory.accelerons.amount))
 		let gain = getAccelGain()
 		tmp.el.accelGain.setTxt(showNum(adjustGen(gain, "accelerons")))
-		tmp.el.accelerSC.setHTML(gain.gte(1e6)?"<span class='sc'>(softcapped)</span>":"")
 		let accEff = getAccelEff()
 		tmp.el.accelEff.setHTML("<span class='thp'>"+showNum(accEff)+"</span>x later"+(accEff.gte(2)?" <span class='sc'>(softcapped)</span>":""))
 		let next = player.elementary.theory.accelerons.expanders.toNumber()+1
