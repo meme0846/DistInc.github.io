@@ -347,6 +347,14 @@ function upadtePathogenHTML(){
 	}
 }
 
+function updateSoftcapsHTML(){
+	for (let i = 0; i < Object.keys(tmp.sc).length; i++) {
+		let name = Object.keys(tmp.sc)[i];
+		let reached = Object.values(tmp.sc)[i];
+		tmp.el[name + "SC"].setTxt(reached ? "" : "");
+		tmp.el[name + "SC"].setClasses({ sc: true });
+	}
+}
 
 function updateDarkCircleRssHTML(){
 	tmp.el.darkMatter.setHTML(
@@ -1404,6 +1412,7 @@ function updateHTML() {
 	updateTimeReversalHTML()
 	updateCollpaseHTML()
 	upadtePathogenHTML()
+	updateSoftcapsHTML()
 	updateDarkCircleHTML()
 	updateAllInfinityHTML()
 	updateOverallExtremeModeHTML()
