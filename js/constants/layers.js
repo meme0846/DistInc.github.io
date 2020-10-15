@@ -60,9 +60,9 @@ const LAYER_FP = {
 const LAYER_SC = {
 	rank: new ExpantaNum(1 / 0),
 	tier: new ExpantaNum(1 / 0),
-	rockets: new ExpantaNum(1e5),
+	rockets: new ExpantaNum(Infinity),
 	rf: new ExpantaNum(1 / 0),
-	collapse: new ExpantaNum(100),
+	collapse: new ExpantaNum(Infinity),
 	inf: new ExpantaNum(1 / 0),
 	elementary: new ExpantaNum(1 / 0)
 };
