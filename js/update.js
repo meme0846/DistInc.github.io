@@ -12,8 +12,7 @@ function updateTemp() {
 	updateTempPathogens();
 	updateTempDC(); 
 	updateTempInf();
-	updateTempElementary();
-	updateTempSC(); 
+	updateTempElementary(); 
 	updateTempMisc();
 	updateTempTimeSpeed();
 
