@@ -1404,7 +1404,6 @@ function updateHTML() {
 	updateTimeReversalHTML()
 	updateCollpaseHTML()
 	upadtePathogenHTML()
-	updateSoftcapsHTML()
 	updateDarkCircleHTML()
 	updateAllInfinityHTML()
 	updateOverallExtremeModeHTML()
