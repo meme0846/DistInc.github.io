@@ -312,9 +312,6 @@ function upadtePathogenUpgradesHTML(){
 				(tmp.pathogens.extra(i).gt(0) ? " + " + showNum(tmp.pathogens.extra(i)) : "") +
 				"<br>Currently: " +
 				tmp.pathogens.disp(i) +
-				(player.pathogens.upgrades[i].gte(getPathogenUpgSoftcapStart(i))
-					? "<span class='sc'>(softcapped)</span>"
-					: "") +
 				"<br>Cost: " +
 				showNum(tmp.pathogens[i].cost) +
 				" Pathogens."
@@ -333,14 +330,13 @@ function upadtePathogenHTML(){
 		);
 		upadtePathogenUpgradesHTML()
 		tmp.el.pthUpgPow.setHTML(
-			!tmp.pathogens.upgPow.eq(1) ? ("Upgrade Power: " + showNum(tmp.pathogens.upgPow.times(100)) + "%"+(tmp.pathogens.upgPow.gte(10)?" <span class='sc'>(softcapped)</span>":"")+"<br>") : ""
+			!tmp.pathogens.upgPow.eq(1) ? ("Upgrade Power: " + showNum(tmp.pathogens.upgPow.times(100)) + "%"+"<br>") : ""
 		);
 		tmp.el.tdeEff.setHTML(
 			tmp.ach[63].has
 				? "Time Doesn't Exist multiplier: " +
 					showNum(ach63Eff()) +
 					"x " +
-					(ach63Eff().gte(ach63SC()) ? "<span class='sc'>(softcapped)</span>" : "") +
 					"<br><br>"
 				: ""
 		);
@@ -456,7 +452,7 @@ function updateInfinitySubtabHTML(){
 		
 		let ach112 = ach112Eff()
 		tmp.el.tudeEff.setHTML(
-			tmp.ach[112].has ? "The Universe Doesn't Exist multiplier: " + showNum(ach112) + "x"+(ach112.gte(1e160)?" <span class='sc'>(softcapped)</span>":"")+"<br><br>" : ""
+			tmp.ach[112].has ? "The Universe Doesn't Exist multiplier: " + showNum(ach112) + "x"+"<br><br>" : ""
 		);
 	}
 }
@@ -579,7 +575,7 @@ function updatePurgeHTML(){
 					" to gain more Purge Power.")
 			: "Start Purge run")
 	);
-	tmp.el.purgePower.setTxt(showNum(player.inf.pantheon.purge.power)+(player.inf.pantheon.purge.power.gte(600)?(" (softcapped)"):""));
+	tmp.el.purgePower.setTxt(showNum(player.inf.pantheon.purge.power));
 	tmp.el.purgePowerEff.setTxt(showNum(tmp.inf.pantheon.ppe));
 }
 
@@ -981,7 +977,7 @@ function updateElementaryMainDisplaysHTML(){
 	tmp.el.elmReset.setHTML(
 		player.elementary.theory.active?(tmp.elm.can?("Exit The Theoriverse to gain "+showNum(tmp.elm.theory.gain)+" Theory Points."):"Reach the end of this Elementary run to gain Theory Points."):("Reset all previous progress to gain <span class='eltxt'>" +
 			showNum(tmp.elm.layer.gain) +
-			"</span> Elementary Particles."+(tmp.elm.layer.gain.gte(tmp.elm.softcap)?"<span class='sc'>(softcapped)</span>":""))
+			"</span> Elementary Particles.")
 	);
 	tmp.el.elmReset.setClasses({ btn: true, locked: !tmp.elm.can, elm: (tmp.elm.can&&!player.elementary.theory.active), th: (tmp.elm.can&&player.elementary.theory.active) });
 	tmp.el.elmt.setTxt(showNum(player.elementary.times));
@@ -1069,7 +1065,7 @@ function updateAcceleronsHTML(){
 		let gain = getAccelGain()
 		tmp.el.accelGain.setTxt(showNum(adjustGen(gain, "accelerons")))
 		let accEff = getAccelEff()
-		tmp.el.accelEff.setHTML("<span class='thp'>"+showNum(accEff)+"</span>x later"+(accEff.gte(2)?" <span class='sc'>(softcapped)</span>":""))
+		tmp.el.accelEff.setHTML("<span class='thp'>"+showNum(accEff)+"</span>x later")
 		let next = player.elementary.theory.accelerons.expanders.toNumber()+1
 		tmp.el.darkExp.setClasses({btn: true, locked: (player.elementary.theory.accelerons.amount.lt(DARK_EXPANDER_COSTS[next])||next-1>=MAX_DARK_EXPANDERS), th: (!(player.elementary.theory.accelerons.amount.lt(DARK_EXPANDER_COSTS[next])||next-1>=MAX_DARK_EXPANDERS))})
 		tmp.el.darkExp.setHTML((next-1>=MAX_DARK_EXPANDERS)?"MAXED":(DARK_EXPANDER_DESCS[next]+"<br>Cost: "+showNum(DARK_EXPANDER_COSTS[next])+" Accelerons"))
@@ -1091,8 +1087,8 @@ function updateInfatonsHTML(){
 		tmp.el.inflaton1.setTxt(showNum(getInflatonEff1()))
 		let eff2 = getInflatonEff2()
 		tmp.el.inflaton2.setTxt(showNum(eff2))
-		tmp.el.inflatonSC.setTxt(tmp.elm.hc.infGain.gte(5e4)?"(softcapped)":"")
-		tmp.el.inflaton2sc.setTxt((eff2.gte(5)&&!player.elementary.entropy.upgrades.includes(13))?"(extremely softcapped)":"")
+		tmp.el.inflatonSC.setTxt("")
+		tmp.el.inflaton2sc.setTxt("")
 	}
 }
 
