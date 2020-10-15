@@ -16,9 +16,8 @@ class Layer {
 		if (tmp[this.tName].lrm !== undefined) nr = new ExpantaNum(req[1]).times(tmp[this.tName].lrm);
 		let gain = player[req[0]].div(nr).pow(LAYER_FP[this.name]);
 		if (modeActive("extreme+hikers_dream") && player.achievements.includes(38) && this.name == "collapse") gain = gain.times(Math.max(player.energyUpgs.length, 1)**2)
-		let sc = new ExpantaNum(LAYER_SC[this.name]);
+		let sc = new ExpantaNum(Infinity);
 		if (tmp[this.tName].sc !== undefined) sc = tmp[this.tName].sc;
-		if (gain.gte(sc)) gain = gain.sqrt().times(ExpantaNum.sqrt(sc));
 		if (tmp.lm) if (tmp.lm[this.name]) gain = gain.times(tmp.lm[this.name]);
 		if (this.name == "collapse"){
 			if (player.inf.pantheon.purge.active || HCCBA("purge")) gain = gain.plus(1).pow(gain.plus(1).times(10).slog(10).pow(-1)).min(gain)
