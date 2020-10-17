@@ -224,7 +224,6 @@ function rank14Eff() {
 
 function rank40Eff() {
 	let eff = primesLTE(player.automation.scraps).max(1);
-	if (eff.gte(1e9)) eff = eff.log10().times(1e9/9)
 	return eff;
 }
 
