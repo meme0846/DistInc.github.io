@@ -1,5 +1,6 @@
   function scalingActive(name, amt, type) {
 	amt = new ExpantaNum(amt);
+	if (modeActive("easy")) return false;
 	return amt.gte(getScalingStart(type, name));
 }
 
