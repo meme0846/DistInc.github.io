@@ -148,6 +148,7 @@ function updateTempFurnace() {
 	if (extremeStadiumActive("flamis", 4) || extremeStadiumActive("nullum", 5) || extremeStadiumActive("quantron", 3)) tmp.fn4base = new ExpantaNum(0);
 	tmp.fn1base = inFC(4)?1:(new ExpantaNum(FCComp(2)?28:3).plus(ExpantaNum.mul(tmp.fn4base, player.furnace.upgrades[3])))
 	if (extremeStadiumActive("quantron", 4)) tmp.fn1base = tmp.fn1base.sqrt();
+	if (tmp.fn1base.gt(10)) tmp.fn1base=10;
 	updateCoalGain()
 	tmp.fn.eff = player.furnace.coal.plus(1).log10().pow(0.6).div(5);
 	if (tmp.fn.eff.gte(1)) tmp.fn.eff = tmp.fn.eff.log10().plus(1);
