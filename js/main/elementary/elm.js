@@ -48,7 +48,7 @@ function setElementaryResetFunction(){
 		infTab = "infinity"
 		
 		// Modes
-		if (modeActive("easy")||modeActive("hard")||modeActive("hikers_dream")) player.modes = player.modes.filter(x => x != "easy" && x != "hard" && x != "extreme" && x != "hikers_dream")
+		if (modeActive("hard")||modeActive("hikers_dream")) player.modes = player.modes.filter(x => x != "hard" && x != "extreme" && x != "hikers_dream")
 	};
 }
 
