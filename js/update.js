@@ -334,7 +334,7 @@ document.onkeyup = function(e) {
 
 document.onkeydown = function(e) {
 	outerShiftDown = !(!e.shiftKey);
-	if (!player.options.hot || player.modes.includes("absurd")) return
+	if (!player.options.hot) return
 	let shiftDown = e.shiftKey
 	let key = e.which
 	switch(key) {
