@@ -11,7 +11,6 @@ function getRocketEffectSoftcapStart() {
 function getRocketEffect() {
 	let r = player.rockets;
 	if (extremeStadiumActive("nullum", 4)) r = ExpantaNum.pow(10, r.log10().times(0.75))
-	if (r.gte(10)) r = r.log10().times(10);
 	if (player.rf.gt(0)) r = r.plus(getFuelEff2());
 	let eff = r.plus(1).logBase(3).times(getFuelEff());
 	if (modeActive("easy")) eff = eff.times(2).plus(1);
