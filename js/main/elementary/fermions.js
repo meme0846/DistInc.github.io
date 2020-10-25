@@ -7,7 +7,6 @@ function updateTempQuarks() {
 	if (player.elementary.theory.supersymmetry.unl) tmp.elm.ferm.quarkGain = tmp.elm.ferm.quarkGain.times(tmp.sqEff||1)
 	if (player.elementary.foam.unl && tmp.elm.qf) tmp.elm.ferm.quarkGain = tmp.elm.ferm.quarkGain.times(tmp.elm.qf.boost2)
 	tmp.elm.ferm.quarkRewards = new ExpantaNum(player.elementary.fermions.quarks.amount).max(1).logBase(50).floor();
-	if (tmp.elm.ferm.quarkRewards.gte(10)) tmp.elm.ferm.quarkRewards = tmp.elm.ferm.quarkRewards.sqrt().times(Math.sqrt(10))
 	if (!tmp.elm.ferm.quarkName) tmp.elm.ferm.quarkName = function (noExp = false) {
 		let name = QUARK_NAMES[player.elementary.fermions.quarks.type - 1];
 		let stacks = getQuarkStacks(tmp.elm.ferm.quarkRewards)
@@ -16,7 +15,6 @@ function updateTempQuarks() {
 	tmp.elm.ferm.quarkEff = function (name) {
 		let qks = player.elementary.fermions.quarks.amount.max(0);
 		let stacks = getQuarkStacks(tmp.elm.ferm.quarkRewards)
-		if (stacks.gte(8) && player.elementary.sky.amount.eq(0)) stacks = stacks.sqrt().times(Math.sqrt(8));
 		if (name == "up") return qks.plus(1).pow(ExpantaNum.mul(5, stacks));
 		else if (name == "down") return qks.plus(1).pow(ExpantaNum.mul(Math.sqrt(2), stacks.sqrt()));
 		else if (name == "charm") return qks.plus(1).pow(ExpantaNum.mul(0.1, stacks.cbrt()));
@@ -59,7 +57,6 @@ function updateTempLeptons() {
 	if (player.elementary.theory.supersymmetry.unl) tmp.elm.ferm.leptonGain = tmp.elm.ferm.leptonGain.times(tmp.slEff||1)
 	if (player.elementary.foam.unl && tmp.elm.qf) tmp.elm.ferm.leptonGain = tmp.elm.ferm.leptonGain.times(tmp.elm.qf.boost2)
 	tmp.elm.ferm.leptonRewards = new ExpantaNum(player.elementary.fermions.leptons.amount).max(1).logBase(100).floor();
-	if (tmp.elm.ferm.leptonRewards.gte(7)) tmp.elm.ferm.leptonRewards = tmp.elm.ferm.leptonRewards.sqrt().times(Math.sqrt(7))
 	if (!tmp.elm.ferm.leptonName) tmp.elm.ferm.leptonName = function (noExp = false) {
 		let name = LEPTON_NAMES[player.elementary.fermions.leptons.type - 1];
 		let stacks = getLeptonStacks(tmp.elm.ferm.leptonRewards)
@@ -68,7 +65,6 @@ function updateTempLeptons() {
 	tmp.elm.ferm.leptonEff = function (name) {
 		let lpts = player.elementary.fermions.leptons.amount;
 		let stacks = getLeptonStacks(tmp.elm.ferm.leptonRewards)
-		if (stacks.gte(8) && player.elementary.sky.amount.eq(0)) stacks = stacks.sqrt().times(Math.sqrt(8));
 		if (name == "electron")
 			return lpts.max(0)
 				.plus(1)
