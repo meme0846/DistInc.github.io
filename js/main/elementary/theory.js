@@ -172,12 +172,6 @@ function getEntangleGain() {
 	let base = new ExpantaNum(1)
 	player.elementary.theory.strings.amounts.forEach(x => function() { base = base.times(ExpantaNum.add(x, 1)) }())
 	let gain = base.pow(1/7).sqrt()
-	if (gain.gte(1e7)) gain = gain.cbrt().times(Math.pow(1e7, 2/3))
-	if (gain.gte(1e9)) {
-		let exp = gain.plus(1).log10().sqrt().div(Math.sqrt(8)/4)
-		if (exp.gte(1e300)) exp = new ExpantaNum(1e300)
-		gain = gain.pow(exp.pow(-1)).times(ExpantaNum.pow(1e9, ExpantaNum.sub(1, exp.pow(-1))))
-	}
 	gain = gain.times(TREE_UPGS[6].effect(player.elementary.theory.tree.upgrades[6]||0))
 	gain = gain.times(TREE_UPGS[30].effect(player.elementary.theory.tree.upgrades[30]||0))
 	if (player.elementary.foam.unl && tmp.elm.qf) gain = gain.times(tmp.elm.qf.boost3)
