@@ -417,8 +417,6 @@ function updateTempAscension() {
 		let base = new ExpantaNum([null, 1, 0, 1, 1][n]);
 		if (!tmp.inf.asc.perkActive(n) || player.inf.endorsements.lt(10) || nerfActive("noPerks")) return base;
 		let pow = new ExpantaNum(tmp.inf.asc.perkPower[n]);
-		if (pow.gte(90)) pow = pow.div(10).plus(81)
-		if (pow.gte(150)) pow = pow.sqrt().times(Math.sqrt(150))
 		if (n == 1) return ExpantaNum.pow(10, pow);
 		else if (n == 2) return pow;
 		else if (n == 3) return ExpantaNum.pow(1e15, pow);
