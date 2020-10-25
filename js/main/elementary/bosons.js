@@ -96,7 +96,6 @@ function updateTempWZB(gaugeSpeed) {
 	tmp.elm.bos.zg = gaugeSpeed.times(0.1).times(tmp.elm.bos.w1);
 	if (player.elementary.foam.unl && tmp.elm.qf) tmp.elm.bos.zg = tmp.elm.bos.zg.times(tmp.elm.qf.boost19)
 	tmp.elm.bos.z1 = player.elementary.bosons.gauge.z.plus(1).pow(0.04);
-	if (tmp.elm.bos.z1.gte(1.4)) tmp.elm.bos.z1 = tmp.elm.bos.z1.logBase(1.4).times(1.4).min(tmp.elm.bos.z1)
 	tmp.elm.bos.z2 = player.elementary.bosons.gauge.z.plus(1).pow(2);
 }
 
@@ -206,7 +205,6 @@ function updateHiggsUpgradeEffects() {
 	if (!tmp.elm.bos["higgs_0;1;1"]) tmp.elm.bos["higgs_0;1;1"] = function(disp=false) {
 		if (!disp) if (!tmp.elm.bos.hasHiggs("0;1;1")) return new ExpantaNum(1)
 		let e = player.inf.endorsements.sub(36).max(0)
-		if (e.gte(3)) e = e.sqrt().times(Math.sqrt(3))
 		return ExpantaNum.pow(7, e).max(1)
 	}
 	if (!tmp.elm.bos["higgs_3;0;0"]) tmp.elm.bos["higgs_3;0;0"] = function(disp=false) {
