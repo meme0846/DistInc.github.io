@@ -17,7 +17,6 @@ function updateQuantumFoamTabs() {
 function updateQuantumFoamBoosts() {
 	tmp.elm.qf.boostData = getQFBoostData()
 	tmp.elm.qf.boost25 = tmp.elm.qf.boostData[25].times(tmp.elm.qf.boostData[25].plus(1).cbrt()).div(2)
-	if (tmp.elm.qf.boost25.gte(3.5)) tmp.elm.qf.boost25 = tmp.elm.qf.boost25.sqrt().times(Math.sqrt(3.5))
 	tmp.elm.qf.boost24 = player.elementary.foam.amounts[0].plus(1).log10().plus(1).pow(tmp.elm.qf.boostData[24].plus(tmp.elm.qf.boost25).times(60))
 	tmp.elm.qf.boost23 = ExpantaNum.pow(10, tmp.elm.qf.boostData[23].plus(tmp.elm.qf.boost25).pow(0.75))
 	tmp.elm.qf.boost22 = ExpantaNum.pow(8, tmp.elm.qf.boostData[22].plus(tmp.elm.qf.boost25))
