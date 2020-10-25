@@ -144,8 +144,6 @@ function unlockStrings() {
 function getStringEff(n) {
 	if (!player.elementary.theory.unl || !player.elementary.theory.strings.unl) return new ExpantaNum(1)
 	let ret = player.elementary.theory.strings.amounts[n-1].plus(1).pow(3/n)
-	if (ret.gte(1e6)) ret = ret.pow(1/3).times(ExpantaNum.pow(1e6, 2/3))
-	if (n==1 && ret.gte(1e9)) ret = ret.pow(0.1).times(Math.pow(1e9, 0.9))
 	if (n==1 && player.elementary.entropy.upgrades.includes(18)) ret = ret.pow(5);
 	let finalExp = new ExpantaNum(1)
 	let ettu = player.elementary.theory.tree.upgrades
