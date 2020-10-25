@@ -16,7 +16,6 @@ function updatePathogensGain(){
 	if (tmp.ach[131].has) tmp.pathogens.gain = tmp.pathogens.gain.times(2);
 	if (tmp.ach[87].has && modeActive("extreme+hikers_dream")) {
 		let x = player.tr.cubes.div("1e750").pow(.2).plus(1)
-		if (x.gt(100)) x = x.log10().times(50)
 		tmp.pathogens.gain = tmp.pathogens.gain.times(x)
 		let x2 = player.tr.cubes.div("1e800").pow(.2).plus(1).min(1e3)
 		tmp.pathogens.gain = tmp.pathogens.gain.times(x2)
